@@ -1,13 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from "react";
 import { JSX } from "react/jsx-runtime";
-
-interface CommitteeMember {
-  id: number;
-  president: string | null;
-  generalSecretary: string;
-  term: string;
-}
+import { CommitteeMember } from "../types/fech";
 
 export default function Leaderboard(): JSX.Element {
   const [data, setData] = useState<CommitteeMember[]>([]);
@@ -21,7 +15,7 @@ export default function Leaderboard(): JSX.Element {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
-        const jsonData: CommitteeMember[] = await response.json();
+        const jsonData = await response.json();
 
         const sortedData = [...jsonData].sort((a, b) => {
           return b.id - a.id;
@@ -63,9 +57,6 @@ export default function Leaderboard(): JSX.Element {
         <span className="bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg shadow-lg inline-block transform -rotate-2 hover:rotate-0 transition-transform duration-300 ease-in-out">
           প্রাক্তন সভাপতি ও সাধারণ সম্পাদকের তালিকা
         </span>
-        {/* <span className="block text-lg sm:text-xl md:text-2xl text-gray-600 mt-1 md:mt-2 font-semibold">
-          বর্তমান থেকে প্রতিষ্ঠাতা
-        </span> */}
       </h1>
 
       <div className="overflow-x-auto bg-white rounded-xl shadow-2xl p-2 md:p-4">
@@ -100,7 +91,7 @@ export default function Leaderboard(): JSX.Element {
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-100 ">
-            {data.map((item: CommitteeMember, idx: number) => (
+            {data.slice(1).map((item: CommitteeMember, idx: number) => (
               <tr
                 key={item.id}
                 className="transition- duration-300 ease-in-out hover:bg-indigo-50 hover:shadow-md cursor-pointer group shadow-xl"

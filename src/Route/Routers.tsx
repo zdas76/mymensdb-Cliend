@@ -6,7 +6,10 @@ import Contact from "../Pages/Contact";
 import Home from "../Pages/Home";
 import FindAdvocate from "../Pages/FindAdvocate";
 import Advocate from "../Pages/Advocate";
-import Leaderboard from "../Pages/Leaderboard";
+
+import { lazy } from "react";
+
+const Leaderboard = lazy(() => import("../Pages/Leaderboard"));
 
 export default function Routers() {
   return (
