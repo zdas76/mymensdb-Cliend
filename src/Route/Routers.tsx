@@ -8,6 +8,8 @@ import FindAdvocate from "../Pages/FindAdvocate";
 import Advocate from "../Pages/Advocate";
 
 import { lazy } from "react";
+import DashboardLayout from "../Components/layout/Dashboardlayout";
+import DashHome from "../Pages/Dashboard/DashHome";
 
 const Leaderboard = lazy(() => import("../Pages/Leaderboard"));
 
@@ -22,6 +24,10 @@ export default function Routers() {
           <Route path="/leaderboard" element={<Leaderboard />} />
           <Route path="/advocate" element={<Advocate />} />
           <Route path="/contact" element={<Contact />} />
+        </Route>
+        <Route path="/dashboard" element={<DashboardLayout />}>
+          <Route index element={<DashHome />} />
+          {/* <Route path="/about" element={<About />} /> */}
         </Route>
       </Routes>
     </div>

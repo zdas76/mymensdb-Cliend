@@ -60,7 +60,7 @@ export default function Home() {
       <section>
         <div className="container mx-auto p-4 md:p-8 my-15">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-center text-indigo-800 mb-6 md:mb-8 tracking-tight">
-            লিডার বোর্ড
+            ওনার বোর্ড
           </h1>
 
           <div className="overflow-x-auto bg-white rounded-xl shadow-2xl p-2 md:p-4">
